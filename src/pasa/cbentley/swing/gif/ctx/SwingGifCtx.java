@@ -1,6 +1,7 @@
 package pasa.cbentley.swing.gif.ctx;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 import pasa.cbentley.core.src4.ctx.ACtx;
 import pasa.cbentley.swing.ctx.SwingCtx;
@@ -33,5 +34,9 @@ public class SwingGifCtx extends ACtx {
 
    public ImgCtx getImgCtx() {
       return imgc;
+   }
+   
+   public void addI18NKey(ArrayList<String> list) {
+      list.add("i18nGif");
    }
 }

@@ -14,7 +14,6 @@ import pasa.cbentley.core.src4.logging.IDLog;
 import pasa.cbentley.core.src4.logging.IStringable;
 import pasa.cbentley.core.src4.logging.ITechConfig;
 import pasa.cbentley.core.src4.logging.ITechLvl;
-import pasa.cbentley.core.src4.logging.ITechTags;
 import pasa.cbentley.swing.SwingPrefs;
 import pasa.cbentley.swing.actions.IExitable;
 import pasa.cbentley.swing.ctx.SwingCtx;
@@ -37,26 +36,16 @@ public abstract class AbstractGifPlayerRunner implements IExitable, IStringable 
 
    protected final UCtx          uc;
 
+   public AbstractGifPlayerRunner() {
+      this(new SwingCtx(new UCtx()));
+   }
+
    public AbstractGifPlayerRunner(SwingCtx sc) {
       this.sc = sc;
       this.uc = sc.getUCtx();
       this.imgc = new ImgCtx(sc);
       this.gifc = new SwingGifCtx(sc, imgc);
       
-   }
-
-   public AbstractGifPlayerRunner() {
-      this(new SwingCtx(new UCtx()));
-   }
-
-   /**
-    * setup the logger at. sub class may override.
-    */
-   protected void setupLogger() {
-      BaseDLogger loggerFirst = (BaseDLogger) uc.toDLog();
-      IConfig config = loggerFirst.getDefault().getConfig();
-      config.setLevelGlobal(ITechLvl.LVL_03_FINEST);
-      config.setFlagPrint(ITechConfig.MASTER_FLAG_02_OPEN_ALL_PRINT, true);
    }
 
    public void cmdExit() {
@@ -91,6 +80,16 @@ public abstract class AbstractGifPlayerRunner implements IExitable, IStringable 
       toDLog().pFlow("language="+language + "country="+country, this, AbstractGifPlayerRunner.class, "initUIThreadOutside", LVL_05_FINE, true);
       
    }
+
+   /**
+    * setup the logger at. sub class may override.
+    */
+   protected void setupLogger() {
+      BaseDLogger loggerFirst = (BaseDLogger) uc.toDLog();
+      IConfig config = loggerFirst.getDefault().getConfig();
+      config.setLevelGlobal(ITechLvl.LVL_03_FINEST);
+      config.setFlagPrint(ITechConfig.MASTER_FLAG_02_OPEN_ALL_PRINT, true);
+   }
    
    //#mdebug
    public IDLog toDLog() {
@@ -110,10 +109,6 @@ public abstract class AbstractGifPlayerRunner implements IExitable, IStringable 
       return Dctx.toString1Line(this);
    }
 
-   private void toStringPrivate(Dctx dc) {
-
-   }
-
    public void toString1Line(Dctx dc) {
       dc.root1Line(this, "AbstractGifPlayerRunner");
       toStringPrivate(dc);
@@ -121,6 +116,10 @@ public abstract class AbstractGifPlayerRunner implements IExitable, IStringable 
 
    public UCtx toStringGetUCtx() {
       return uc;
+   }
+
+   private void toStringPrivate(Dctx dc) {
+
    }
 
    //#enddebug
