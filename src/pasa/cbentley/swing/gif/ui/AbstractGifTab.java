@@ -6,7 +6,6 @@ import javax.swing.JPanel;
 
 import pasa.cbentley.core.src4.logging.Dctx;
 import pasa.cbentley.core.src4.logging.ITechLvl;
-import pasa.cbentley.swing.ctx.SwingCtx;
 import pasa.cbentley.swing.gif.ctx.SwingGifCtx;
 import pasa.cbentley.swing.imytab.AbstractMyTab;
 import pasa.cbentley.swing.widgets.b.BLabel;
@@ -23,18 +22,24 @@ public class AbstractGifTab extends AbstractMyTab {
     */
    private static final long   serialVersionUID = 8194278974893842214L;
 
+   protected SwingGifCtx       gifc;
+
+   private String              gifPath;
+
+   private boolean             isStartAndStop;
+
    private BLabel              labTitle;
 
    private GifBasicPlayerPanel player;
 
-   private String              gifPath;
-
    private String              titleKey;
 
-   protected SwingGifCtx            gifc;
-
-   private boolean             isStartAndStop;
-
+   /**
+    * @param gifc
+    * @param id
+    * @param gifPath
+    * @param titleKey
+    */
    public AbstractGifTab(SwingGifCtx gifc, String id, String gifPath, String titleKey) {
       super(gifc.getSwingCtx(), id);
       this.gifc = gifc;
@@ -42,26 +47,6 @@ public class AbstractGifTab extends AbstractMyTab {
       this.titleKey = titleKey;
       isStartAndStop = true;
 
-   }
-
-   public void tabLostFocus() {
-      if (player != null) {
-         player.getController().cmdStop();
-      }
-   }
-
-   public void setStartAndStop(boolean isStartAndStop) {
-      this.isStartAndStop = isStartAndStop;
-   }
-
-   public void tabGainFocus() {
-      if (player != null) {
-         if (isStartAndStop) {
-            //restart the GIF where it was ?
-            player.getController().cmdPlay();
-            //set button states?
-         }
-      }
    }
 
    public void disposeTab() {
@@ -91,6 +76,26 @@ public class AbstractGifTab extends AbstractMyTab {
 
       this.add(north, BorderLayout.NORTH);
       this.add(player, BorderLayout.CENTER);
+   }
+
+   public void setStartAndStop(boolean isStartAndStop) {
+      this.isStartAndStop = isStartAndStop;
+   }
+
+   public void tabGainFocus() {
+      if (player != null) {
+         if (isStartAndStop) {
+            //restart the GIF where it was ?
+            player.getController().cmdPlay();
+            //set button states?
+         }
+      }
+   }
+
+   public void tabLostFocus() {
+      if (player != null) {
+         player.getController().cmdStop();
+      }
    }
 
    //#mdebug
