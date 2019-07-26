@@ -27,6 +27,7 @@ public class JTabsGifPlayerRun extends AbstractGifPlayerRunner {
       TabsGif tabs = new TabsGif(gifc);
       //initialize it
       tabs.initCheck();
+      
       //manually select a tab for initialization
       AbstractGifTab first = tabs.getFirst();
       first.initCheck();
