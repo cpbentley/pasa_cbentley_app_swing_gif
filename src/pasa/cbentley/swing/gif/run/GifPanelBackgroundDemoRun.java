@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.border.EmptyBorder;
 
+import pasa.cbentley.core.src4.interfaces.IPrefs;
 import pasa.cbentley.swing.actions.IExitable;
 import pasa.cbentley.swing.gif.ui.NewGIFBackgroundPanel;
 
@@ -26,9 +27,7 @@ public class GifPanelBackgroundDemoRun extends AbstractGifPlayerRunner implement
       });
    }
 
-
-
-   protected void initUIThreadInside() {
+   protected void initUIThreadInsideSwing() {
       JFrame f = new JFrame("Demo of a Gif as background of a JPanel");
       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       f.setLocationByPlatform(true);
@@ -50,7 +49,7 @@ public class GifPanelBackgroundDemoRun extends AbstractGifPlayerRunner implement
       f.setContentPane(imagePanel);
       f.setPreferredSize(new Dimension(1024, 1024));
       f.pack();
-      f.setVisible(true);
+      f.setVisible(true);      
    }
 
 }

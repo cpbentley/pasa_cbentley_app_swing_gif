@@ -5,14 +5,11 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 import pasa.cbentley.core.src4.ctx.UCtx;
-import pasa.cbentley.core.src4.interfaces.ICallBack;
 import pasa.cbentley.core.src4.logging.Dctx;
 import pasa.cbentley.core.src4.logging.IStringable;
 import pasa.cbentley.swing.ctx.SwingCtx;
 import pasa.cbentley.swing.gif.ctx.SwingGifCtx;
 import pasa.cbentley.swing.gif.player.GifControl;
-import pasa.cbentley.swing.gif.player.PanelButtonsPlayerBasic;
-import pasa.cbentley.swing.images.anim.AnimOfImageFrames;
 import pasa.cbentley.swing.images.anim.AnimationCoordinator;
 import pasa.cbentley.swing.images.anim.ui.JComponentAnim;
 import pasa.cbentley.swing.images.interfaces.IGifCommadable;
@@ -32,11 +29,16 @@ import pasa.cbentley.swing.images.interfaces.IRepaintable;
  */
 public class NewGIFBackgroundPanel extends JPanel implements IRepaintable, IStringable {
 
+   /**
+    * 
+    */
+   private static final long    serialVersionUID = 513543033807580251L;
+
    private AnimationCoordinator animDrawer;
 
    private GifControl           control;
 
-   private SwingGifCtx               gifc;
+   private SwingGifCtx          gifc;
 
    private SwingCtx             sc;
 
@@ -52,7 +54,6 @@ public class NewGIFBackgroundPanel extends JPanel implements IRepaintable, IStri
          control = new GifControl(gifc, this, animDrawer);
       }
    }
-
 
    /**
     * Call this when GIF anim is no more needed
@@ -73,8 +74,6 @@ public class NewGIFBackgroundPanel extends JPanel implements IRepaintable, IStri
    public IGifCommadable getController() {
       return animDrawer;
    }
-
-
 
    @Override
    public void paintComponent(Graphics g) {

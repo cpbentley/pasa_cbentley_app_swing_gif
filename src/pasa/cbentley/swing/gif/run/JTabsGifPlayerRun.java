@@ -1,7 +1,6 @@
 package pasa.cbentley.swing.gif.run;
 
 import pasa.cbentley.swing.gif.ui.AbstractGifTab;
-import pasa.cbentley.swing.gif.ui.GifBasicPlayerPanel;
 import pasa.cbentley.swing.window.CBentleyFrame;
 
 public class JTabsGifPlayerRun extends AbstractGifPlayerRunner {
@@ -18,7 +17,10 @@ public class JTabsGifPlayerRun extends AbstractGifPlayerRunner {
       });
    }
 
-   protected void initUIThreadInside() {
+
+ 
+
+   protected void initUIThreadInsideSwing() {
 
       frame = new CBentleyFrame(sc);
       frame.setTitle("JTabs GIF Demo");
@@ -39,7 +41,7 @@ public class JTabsGifPlayerRun extends AbstractGifPlayerRunner {
       frame.positionFrame();
       frame.setExitable(this);
 
-      sc.guiUpdate();
+      sc.guiUpdate();      
    }
 
 }

@@ -103,13 +103,16 @@ public class NorthPanelControl extends JPanel implements ActionListener {
          control.cmdReload();
       } else if (src == cbShowData) {
          control.cmdShowDataToggle();
-      } else if (src == butDebugAnim) {
-         control.cmdDebugAnim();
       } else if (src == butImageNext) {
          control.cmdImageNext();
       } else if (src == butImagePrev) {
          control.cmdImagePrev();
       }
+      //#mdebug
+      if (src == butDebugAnim) {
+         control.cmdDebugAnim();
+      }
+      //#enddebug
    }
 
 }

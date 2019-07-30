@@ -9,7 +9,8 @@ import pasa.cbentley.core.src4.logging.ITechLvl;
 import pasa.cbentley.swing.ctx.SwingCtx;
 
 public class WindowEventDebugDelegate implements WindowListener {
-
+   
+   //#mdebug
    private SwingCtx sc;
 
    private IStringable owner;
@@ -23,7 +24,8 @@ public class WindowEventDebugDelegate implements WindowListener {
    public IDLog toDLog() {
       return sc.toDLog();
    }
-
+   //#enddebug
+   
    public void windowActivated(WindowEvent e) {
       //#debug
       toDLog().pEvent(sc.toSD().d1(e), owner, WindowEventDebugDelegate.class, "windowActivated", ITechLvl.LVL_04_FINER, true);
@@ -60,3 +62,4 @@ public class WindowEventDebugDelegate implements WindowListener {
    }
 
 }
+

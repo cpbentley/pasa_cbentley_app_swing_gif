@@ -17,6 +17,16 @@ public class GifControlExtra extends GifControl {
       super(gifc, rep, controller);
    }
 
+   //#mdebug
+   public void cmdDebugAnim() {
+      controller.cmdDebugAnim();
+   }
+   //#enddebug
+   
+   public void cmdExit() {
+
+   }
+
    public void cmdImageNext() {
       if (lastTriedFile != null) {
          File dir = lastTriedFile.getParentFile();
@@ -50,17 +60,6 @@ public class GifControlExtra extends GifControl {
       }
    }
 
-   public void cmdReload() {
-      //stop current 
-      controller.cmdStop();
-
-      File lastFile = new File(sc.getPrefs().get("last_gif", ""));
-      if (lastFile.exists() && !lastFile.isDirectory()) {
-         cmdAnimPlay(lastFile);
-      }
-
-   }
-
    public void cmdOpenImageFolder(int id) {
       String preferenceID = "gifs" + id;
       File folder = sc.getFolder(preferenceID);
@@ -87,16 +86,20 @@ public class GifControlExtra extends GifControl {
       }
    }
 
-   public void cmdExit() {
+   public void cmdReload() {
+      //stop current 
+      controller.cmdStop();
+
+      File lastFile = new File(sc.getPrefs().get("last_gif", ""));
+      if (lastFile.exists() && !lastFile.isDirectory()) {
+         cmdAnimPlay(lastFile);
+      }
 
    }
 
-   public void cmdDebugAnim() {
-      controller.cmdDebugAnim();
-   }
 
    public void cmdShowDataToggle() {
-      controller.cmdShowDataToggle();      
+      controller.cmdShowDataToggle();
    }
 
 }
