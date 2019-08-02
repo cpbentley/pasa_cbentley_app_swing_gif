@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 
 import javax.swing.JPanel;
 
+import pasa.cbentley.core.src4.ctx.UCtx;
 import pasa.cbentley.core.src4.logging.Dctx;
 import pasa.cbentley.core.src4.logging.ITechLvl;
 import pasa.cbentley.swing.gif.ctx.SwingGifCtx;
@@ -98,17 +99,26 @@ public class AbstractGifTab extends AbstractMyTab {
       }
    }
 
+
    //#mdebug
    public void toString(Dctx dc) {
       dc.root(this, "AbstractGifTab");
+      toStringPrivate(dc);
       super.toString(dc.sup());
-      //print 
+   }
+
+   private void toStringPrivate(Dctx dc) {
+      
    }
 
    public void toString1Line(Dctx dc) {
       dc.root1Line(this, "AbstractGifTab");
-      super.toString(dc.sup1Line());
+      toStringPrivate(dc);
+      super.toString1Line(dc.sup1Line());
    }
+
    //#enddebug
+   
+
 
 }
