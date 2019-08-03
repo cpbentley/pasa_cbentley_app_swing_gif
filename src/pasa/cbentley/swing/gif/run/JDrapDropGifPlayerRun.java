@@ -19,7 +19,7 @@ public class JDrapDropGifPlayerRun extends AbstractGifPlayerRunner implements IE
       });
    }
 
-   protected void initUIThreadInsideSwing() {
+   protected CBentleyFrame initUIThreadInsideSwing() {
 
       frame = new CBentleyFrame(sc);
       frame.setTitle("Image Animation GIF Demo");
@@ -28,13 +28,9 @@ public class JDrapDropGifPlayerRun extends AbstractGifPlayerRunner implements IE
       gifplayer = new GifBasicPlayerPanel(gifc);
       gifplayer.setFrameOwner(frame);
 
-      sc.guiRegister(gifplayer);
-
       frame.getContentPane().add(gifplayer);
-      frame.positionFrame();
-      frame.setExitable(this);
 
-      sc.guiUpdate();      
+      return frame;
    }
 
 }

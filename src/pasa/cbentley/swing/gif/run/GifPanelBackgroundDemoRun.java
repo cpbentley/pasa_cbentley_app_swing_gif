@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import pasa.cbentley.core.src4.interfaces.IPrefs;
 import pasa.cbentley.swing.actions.IExitable;
 import pasa.cbentley.swing.gif.ui.NewGIFBackgroundPanel;
+import pasa.cbentley.swing.window.CBentleyFrame;
 
 public class GifPanelBackgroundDemoRun extends AbstractGifPlayerRunner implements IExitable {
 
@@ -27,18 +28,15 @@ public class GifPanelBackgroundDemoRun extends AbstractGifPlayerRunner implement
       });
    }
 
-   protected void initUIThreadInsideSwing() {
-      JFrame f = new JFrame("Demo of a Gif as background of a JPanel");
-      f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+   protected CBentleyFrame initUIThreadInsideSwing() {
+      CBentleyFrame f = new CBentleyFrame(sc, "Demo of a Gif as background of a JPanel");
+      
       f.setLocationByPlatform(true);
+      
       NewGIFBackgroundPanel imagePanel = new NewGIFBackgroundPanel(gifc);
 
-      String gifName = "C:\\eclipse-workspace-2019-03\\pasa_cbentley_pascalcoin\\res\\gifs\\pasc_ice_black_clouds_1024.gif";
-      File file = new File(gifName);
-      if(!file.exists()) {
-         
-      }
-      imagePanel.getControl().cmdAnimPlay(file);
+      String gifName = "/gifs/pasc_ice_black_clouds_1024.gif";
+      imagePanel.getControl().cmdAnimPlay(gifName);
       
       imagePanel.setLayout(new GridLayout(5, 10, 10, 10));
       imagePanel.setBorder(new EmptyBorder(20, 20, 20, 20));
@@ -48,8 +46,8 @@ public class GifPanelBackgroundDemoRun extends AbstractGifPlayerRunner implement
 
       f.setContentPane(imagePanel);
       f.setPreferredSize(new Dimension(1024, 1024));
-      f.pack();
-      f.setVisible(true);      
+
+      return f;
    }
 
 }

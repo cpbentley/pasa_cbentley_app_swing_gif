@@ -20,7 +20,7 @@ public class JTabsGifPlayerRun extends AbstractGifPlayerRunner {
 
  
 
-   protected void initUIThreadInsideSwing() {
+   protected CBentleyFrame initUIThreadInsideSwing() {
 
       frame = new CBentleyFrame(sc);
       frame.setTitle("JTabs GIF Demo");
@@ -35,13 +35,9 @@ public class JTabsGifPlayerRun extends AbstractGifPlayerRunner {
       first.initCheck();
       tabs.setSelected(first);
       
-      sc.guiRegister(tabs);
-
       frame.getContentPane().add(tabs);
-      frame.positionFrame();
-      frame.setExitable(this);
-
-      sc.guiUpdate();      
+      
+      return frame;
    }
 
 }
