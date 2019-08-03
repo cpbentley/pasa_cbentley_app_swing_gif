@@ -3,10 +3,10 @@ package pasa.cbentley.swing.gif.run;
 import pasa.cbentley.swing.gif.ui.AbstractGifTab;
 import pasa.cbentley.swing.window.CBentleyFrame;
 
-public class JTabsGifPlayerRun extends AbstractGifPlayerRunner {
+public class RunJTabsGifPlayer extends RunAbstractGifPlayer {
    public static void main(final String[] args) {
       //create runner
-      final JTabsGifPlayerRun demo = new JTabsGifPlayerRun();
+      final RunJTabsGifPlayer demo = new RunJTabsGifPlayer();
       //init prefs files etc.
       demo.initUIThreadOutside();
       //init UI stuff inside AWT thread.

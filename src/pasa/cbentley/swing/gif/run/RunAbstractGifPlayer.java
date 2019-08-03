@@ -23,7 +23,7 @@ import pasa.cbentley.swing.images.ctx.ImgCtx;
 import pasa.cbentley.swing.run.RunSwingAbstract;
 import pasa.cbentley.swing.window.CBentleyFrame;
 
-public abstract class AbstractGifPlayerRunner extends RunSwingAbstract implements IExitable, IStringable {
+public abstract class RunAbstractGifPlayer extends RunSwingAbstract implements IExitable, IStringable {
 
    protected final SwingGifCtx   gifc;
 
@@ -31,7 +31,7 @@ public abstract class AbstractGifPlayerRunner extends RunSwingAbstract implement
 
    protected final ImgCtx        imgc;
 
-   public AbstractGifPlayerRunner() {
+   public RunAbstractGifPlayer() {
       this.imgc = new ImgCtx(sc);
       this.gifc = new SwingGifCtx(sc, imgc);
    }
@@ -46,7 +46,7 @@ public abstract class AbstractGifPlayerRunner extends RunSwingAbstract implement
       }
 
       //#debug
-      toDLog().pFlow("", this, AbstractGifPlayerRunner.class, "cmdExit", LVL_05_FINE, true);
+      toDLog().pFlow("", this, RunAbstractGifPlayer.class, "cmdExit", LVL_05_FINE, true);
 
       System.exit(0);
    }

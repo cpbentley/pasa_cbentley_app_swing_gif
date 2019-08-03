@@ -4,11 +4,11 @@ import pasa.cbentley.swing.actions.IExitable;
 import pasa.cbentley.swing.gif.ui.GifBasicPlayerPanel;
 import pasa.cbentley.swing.window.CBentleyFrame;
 
-public class JDrapDropGifPlayerRun extends AbstractGifPlayerRunner implements IExitable {
+public class RunJDrapDropGifPlayer extends RunAbstractGifPlayer implements IExitable {
 
    public static void main(final String[] args) {
       //create runner
-      final JDrapDropGifPlayerRun demo = new JDrapDropGifPlayerRun();
+      final RunJDrapDropGifPlayer demo = new RunJDrapDropGifPlayer();
       //init prefs files etc.
       demo.initUIThreadOutside();
       //init UI stuff inside AWT thread.
