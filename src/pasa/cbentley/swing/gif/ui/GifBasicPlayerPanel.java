@@ -1,12 +1,8 @@
 package pasa.cbentley.swing.gif.ui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.Iterator;
-import java.util.List;
 
 import javax.swing.JPanel;
 
@@ -17,10 +13,8 @@ import pasa.cbentley.core.src4.thread.ITechRunnable;
 import pasa.cbentley.swing.ctx.SwingCtx;
 import pasa.cbentley.swing.gif.ctx.SwingGifCtx;
 import pasa.cbentley.swing.gif.player.GifControl;
-import pasa.cbentley.swing.gif.player.LoadGifFileWorkerRunnable;
 import pasa.cbentley.swing.gif.player.PanelButtonsPlayerBasic;
 import pasa.cbentley.swing.gif.utils.GifTransfer;
-import pasa.cbentley.swing.images.anim.AnimOfImageFrames;
 import pasa.cbentley.swing.images.anim.AnimationCoordinator;
 import pasa.cbentley.swing.images.anim.ui.JComponentAnim;
 import pasa.cbentley.swing.images.ctx.ImgCtx;
@@ -37,11 +31,15 @@ import pasa.cbentley.swing.window.CBentleyFrame;
  */
 public class GifBasicPlayerPanel extends JPanel implements ICallBackSwing, ICallBack, IMyGui, IRepaintable {
 
+   private AnimationCoordinator    animDrawer;
+
+   private GifControl              control;
+
    private PanelButtonsPlayerBasic controller;
 
    private CBentleyFrame           frame;
 
-   private SwingGifCtx                  gifc;
+   private SwingGifCtx             gifc;
 
    private String                  gifPath;
 
@@ -51,9 +49,7 @@ public class GifBasicPlayerPanel extends JPanel implements ICallBackSwing, ICall
 
    private SwingCtx                sc;
 
-   private AnimationCoordinator    animDrawer;
-
-   private GifControl              control;
+   private Color                   backgroundColorGif;
 
    public GifBasicPlayerPanel(SwingGifCtx gifc) {
       this.gifc = gifc;
@@ -79,18 +75,18 @@ public class GifBasicPlayerPanel extends JPanel implements ICallBackSwing, ICall
       this.setTransferHandler(gifTransfer);
    }
 
+   public void callBack(Object o) {
+      // TODO Auto-generated method stub
+
+   }
+
+   public void callBackInSwingThread(Object o) {
+      // TODO Auto-generated method stub
+
+   }
+
    public PanelButtonsPlayerBasic getController() {
       return controller;
-   }
-
-   public boolean isPlaying() {
-      return imgView.getState() == ITechRunnable.STATE_0_RUNNING;
-   }
-
-   public void playDefault() {
-      if(gifPath != null) {
-         control.cmdAnimPlayIfNew(gifPath);
-      }
    }
 
    public String getGifPath() {
@@ -101,8 +97,36 @@ public class GifBasicPlayerPanel extends JPanel implements ICallBackSwing, ICall
       sc.guiUpdateOnChildren(this);
    }
 
+   public boolean isPlaying() {
+      return imgView.getState() == ITechRunnable.STATE_0_RUNNING;
+   }
+
+   public void playDefault() {
+      if (gifPath != null) {
+         control.cmdAnimPlayIfNew(gifPath);
+      }
+   }
+
    public void reload() {
       controller.cmdPlay();
+   }
+
+   public void requestRepaintPlease() {
+      // TODO Auto-generated method stub
+
+   }
+
+   /**
+    * Sets the color for the panel
+    * 
+    * @param backgroundColorGif
+    */
+   public void setColorBackgroundGif(Color backgroundColorGif) {
+      this.backgroundColorGif = backgroundColorGif;
+      if (backgroundColorGif != null) {
+         imgView.setBackground(backgroundColorGif);
+      }
+      this.setBackground(backgroundColorGif);
    }
 
    public void setFrameOwner(CBentleyFrame frame) {
@@ -137,21 +161,6 @@ public class GifBasicPlayerPanel extends JPanel implements ICallBackSwing, ICall
 
    public void unload() {
       imgView.setImage(null);
-   }
-
-   public void requestRepaintPlease() {
-      // TODO Auto-generated method stub
-
-   }
-
-   public void callBack(Object o) {
-      // TODO Auto-generated method stub
-
-   }
-
-   public void callBackInSwingThread(Object o) {
-      // TODO Auto-generated method stub
-
    }
 
 }

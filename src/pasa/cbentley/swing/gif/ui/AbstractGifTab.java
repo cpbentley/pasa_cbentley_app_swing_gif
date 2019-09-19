@@ -1,18 +1,22 @@
 package pasa.cbentley.swing.gif.ui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 import javax.swing.JPanel;
 
-import pasa.cbentley.core.src4.ctx.UCtx;
 import pasa.cbentley.core.src4.logging.Dctx;
 import pasa.cbentley.core.src4.logging.ITechLvl;
 import pasa.cbentley.swing.gif.ctx.SwingGifCtx;
 import pasa.cbentley.swing.imytab.AbstractMyTab;
+import pasa.cbentley.swing.imytab.IMyTab;
 import pasa.cbentley.swing.widgets.b.BLabel;
 
 /**
- * A message with a GIF playing with how to use the daemon
+ * A an {@link IMyTab} that displays an animating gif along with a player controller
+ * 
+ * <li> {@link AbstractGifTab#setTitleKey(String)} create a Label above
+ * 
  * @author Charles Bentley
  *
  */
@@ -35,6 +39,8 @@ public class AbstractGifTab extends AbstractMyTab {
 
    private String              titleKey;
 
+   private Color               backgroundColorGif;
+
    /**
     * @param gifc
     * @param id
@@ -45,9 +51,18 @@ public class AbstractGifTab extends AbstractMyTab {
       super(gifc.getSwingCtx(), id);
       this.gifc = gifc;
       this.gifPath = gifPath;
-      this.titleKey = titleKey;
+      this.setTitleKey(titleKey);
       isStartAndStop = true;
 
+   }
+
+   /**
+    * The color to be used as background that will be fed during init to
+    * {@link GifBasicPlayerPanel}
+    * @param c
+    */
+   public void setColorBackgroundGif(Color c) {
+      backgroundColorGif = c;
    }
 
    public void disposeTab() {
@@ -66,7 +81,7 @@ public class AbstractGifTab extends AbstractMyTab {
 
       JPanel north = new JPanel();
 
-      labTitle = new BLabel(sc, titleKey);
+      labTitle = new BLabel(sc, getTitleKey());
       north.add(labTitle);
 
       //in center a GIF demo of the pascal root daemon
@@ -74,6 +89,7 @@ public class AbstractGifTab extends AbstractMyTab {
       player.setGifPath(gifPath);
       player.playDefault();
       player.getController().cmdPlay();
+      player.setColorBackgroundGif(backgroundColorGif);
 
       this.add(north, BorderLayout.NORTH);
       this.add(player, BorderLayout.CENTER);
@@ -99,7 +115,6 @@ public class AbstractGifTab extends AbstractMyTab {
       }
    }
 
-
    //#mdebug
    public void toString(Dctx dc) {
       dc.root(this, "AbstractGifTab");
@@ -108,7 +123,7 @@ public class AbstractGifTab extends AbstractMyTab {
    }
 
    private void toStringPrivate(Dctx dc) {
-      
+
    }
 
    public void toString1Line(Dctx dc) {
@@ -117,8 +132,14 @@ public class AbstractGifTab extends AbstractMyTab {
       super.toString1Line(dc.sup1Line());
    }
 
-   //#enddebug
-   
+   public String getTitleKey() {
+      return titleKey;
+   }
 
+   public void setTitleKey(String titleKey) {
+      this.titleKey = titleKey;
+   }
+
+   //#enddebug
 
 }
