@@ -99,6 +99,14 @@ public class AbstractGifTab extends AbstractMyTab {
       this.isStartAndStop = isStartAndStop;
    }
 
+   public String getTitleKey() {
+      return titleKey;
+   }
+
+   public void setTitleKey(String titleKey) {
+      this.titleKey = titleKey;
+   }
+
    public void tabGainFocus() {
       if (player != null) {
          if (isStartAndStop) {
@@ -130,14 +138,6 @@ public class AbstractGifTab extends AbstractMyTab {
       dc.root1Line(this, "AbstractGifTab");
       toStringPrivate(dc);
       super.toString1Line(dc.sup1Line());
-   }
-
-   public String getTitleKey() {
-      return titleKey;
-   }
-
-   public void setTitleKey(String titleKey) {
-      this.titleKey = titleKey;
    }
 
    //#enddebug
