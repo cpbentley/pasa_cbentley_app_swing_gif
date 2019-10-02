@@ -27,6 +27,8 @@ public class AbstractGifTab extends AbstractMyTab {
     */
    private static final long   serialVersionUID = 8194278974893842214L;
 
+   private Color               backgroundColorGif;
+
    protected SwingGifCtx       gifc;
 
    private String              gifPath;
@@ -38,8 +40,6 @@ public class AbstractGifTab extends AbstractMyTab {
    private GifBasicPlayerPanel player;
 
    private String              titleKey;
-
-   private Color               backgroundColorGif;
 
    /**
     * @param gifc
@@ -56,15 +56,6 @@ public class AbstractGifTab extends AbstractMyTab {
 
    }
 
-   /**
-    * The color to be used as background that will be fed during init to
-    * {@link GifBasicPlayerPanel}
-    * @param c
-    */
-   public void setColorBackgroundGif(Color c) {
-      backgroundColorGif = c;
-   }
-
    public void disposeTab() {
       //#debug
       toDLog().pFlow("", this, AbstractGifTab.class, "disposeTab", ITechLvl.LVL_05_FINE, true);
@@ -74,6 +65,10 @@ public class AbstractGifTab extends AbstractMyTab {
             player.getController().cmdStop();
          }
       }
+   }
+
+   public String getTitleKey() {
+      return titleKey;
    }
 
    public void initTab() {
@@ -95,12 +90,17 @@ public class AbstractGifTab extends AbstractMyTab {
       this.add(player, BorderLayout.CENTER);
    }
 
-   public void setStartAndStop(boolean isStartAndStop) {
-      this.isStartAndStop = isStartAndStop;
+   /**
+    * The color to be used as background that will be fed during init to
+    * {@link GifBasicPlayerPanel}
+    * @param c
+    */
+   public void setColorBackgroundGif(Color c) {
+      backgroundColorGif = c;
    }
 
-   public String getTitleKey() {
-      return titleKey;
+   public void setStartAndStop(boolean isStartAndStop) {
+      this.isStartAndStop = isStartAndStop;
    }
 
    public void setTitleKey(String titleKey) {
@@ -118,6 +118,8 @@ public class AbstractGifTab extends AbstractMyTab {
    }
 
    public void tabLostFocus() {
+      //#debug
+      toDLog().pFlow("", this, AbstractGifTab.class, "tabLostFocus", LVL_05_FINE, true);
       if (player != null) {
          player.getController().cmdStop();
       }
@@ -126,18 +128,21 @@ public class AbstractGifTab extends AbstractMyTab {
    //#mdebug
    public void toString(Dctx dc) {
       dc.root(this, "AbstractGifTab");
+      dc.appendWithSpace(getTabInternalID());
       toStringPrivate(dc);
+      dc.appendVarWithSpace("titleKey", titleKey);
       super.toString(dc.sup());
-   }
-
-   private void toStringPrivate(Dctx dc) {
-
    }
 
    public void toString1Line(Dctx dc) {
       dc.root1Line(this, "AbstractGifTab");
       toStringPrivate(dc);
       super.toString1Line(dc.sup1Line());
+   }
+
+   private void toStringPrivate(Dctx dc) {
+      dc.appendVarWithSpace("gifPath", gifPath);
+      sc.toSD().d1(backgroundColorGif);
    }
 
    //#enddebug
