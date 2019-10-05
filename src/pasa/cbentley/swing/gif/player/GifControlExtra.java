@@ -77,7 +77,7 @@ public class GifControlExtra extends GifControl {
       //get folder from preferen
       JFileChooser chooser = new JFileChooser(sc.getFolder(preferenceID));
       chooser.setFileFilter(new GIFFilter());
-      int returnVal = chooser.showOpenDialog(sc.getFrameFocused());
+      int returnVal = chooser.showOpenDialog(sc.getFrames().getFirstActive());
       if (returnVal == JFileChooser.APPROVE_OPTION) {
          File f = chooser.getSelectedFile();
          sc.setFolder(preferenceID, f.getParentFile());
