@@ -48,6 +48,7 @@ public class RunJTabsGifPlayer extends RunAbstractGifPlayer {
       return frame;
    }
 
+   //#mdebug
    protected void toStringSetupLogger(UCtx uc) {
       BaseDLogger loggerFirst = (BaseDLogger) uc.toDLog();
       IConfig config = loggerFirst.getDefault().getConfig();
@@ -60,5 +61,6 @@ public class RunJTabsGifPlayer extends RunAbstractGifPlayer {
       
       sc.setResMissingLog(false);
    }
+   //#enddebug
 
 }
