@@ -1,27 +1,17 @@
 package pasa.cbentley.swing.gif.run;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
-import java.util.prefs.Preferences;
 
 import pasa.cbentley.core.src4.ctx.UCtx;
 import pasa.cbentley.core.src4.interfaces.IPrefs;
-import pasa.cbentley.core.src4.logging.BaseDLogger;
 import pasa.cbentley.core.src4.logging.Dctx;
-import pasa.cbentley.core.src4.logging.IConfig;
 import pasa.cbentley.core.src4.logging.IDLog;
 import pasa.cbentley.core.src4.logging.IStringable;
-import pasa.cbentley.core.src4.logging.ITechConfig;
-import pasa.cbentley.core.src4.logging.ITechLvl;
-import pasa.cbentley.swing.SwingPrefs;
 import pasa.cbentley.swing.actions.IExitable;
-import pasa.cbentley.swing.ctx.SwingCtx;
 import pasa.cbentley.swing.gif.ctx.SwingGifCtx;
 import pasa.cbentley.swing.gif.ui.GifBasicPlayerPanel;
 import pasa.cbentley.swing.images.ctx.ImgCtx;
 import pasa.cbentley.swing.run.RunSwingAbstract;
-import pasa.cbentley.swing.window.CBentleyFrame;
 
 public abstract class RunAbstractGifPlayer extends RunSwingAbstract implements IExitable, IStringable {
 

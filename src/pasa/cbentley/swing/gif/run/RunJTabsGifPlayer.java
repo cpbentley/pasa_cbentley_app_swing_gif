@@ -2,7 +2,7 @@ package pasa.cbentley.swing.gif.run;
 
 import pasa.cbentley.core.src4.ctx.UCtx;
 import pasa.cbentley.core.src4.logging.BaseDLogger;
-import pasa.cbentley.core.src4.logging.IConfig;
+import pasa.cbentley.core.src4.logging.IDLogConfig;
 import pasa.cbentley.core.src4.logging.ITechLvl;
 import pasa.cbentley.core.src4.logging.ITechTags;
 import pasa.cbentley.swing.ctx.SwingCtx;
@@ -51,7 +51,7 @@ public class RunJTabsGifPlayer extends RunAbstractGifPlayer {
    //#mdebug
    protected void toStringSetupLogger(UCtx uc) {
       BaseDLogger loggerFirst = (BaseDLogger) uc.toDLog();
-      IConfig config = loggerFirst.getDefault().getConfig();
+      IDLogConfig config = loggerFirst.getDefault().getConfig();
       config.setLevelGlobal(ITechLvl.LVL_03_FINEST);
       //config.setFlagPrint(ITechConfig.MASTER_FLAG_03_ONLY_POSITIVES, true);
       config.setFlagTag(ITechTags.FLAG_09_PRINT_FLOW, true);
