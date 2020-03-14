@@ -9,5 +9,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_swing"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_core_src5"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_swing_images"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_core_j2se"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
