@@ -1,3 +1,7 @@
+/*
+ * (c) 2018-2020 Charles-Philip Bentley
+ * This code is licensed under MIT license (see LICENSE.txt for details)
+ */
 package pasa.cbentley.swing.gif.ctx;
 
 import java.awt.image.BufferedImage;
@@ -37,5 +41,9 @@ public class SwingGifCtx extends ACtx {
    
    public void addI18NKey(List<String> list) {
       list.add("i18nGif");
+   }
+   
+   public int getCtxID() {
+      return 455;
    }
 }
