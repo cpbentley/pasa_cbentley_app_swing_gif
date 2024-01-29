@@ -9,11 +9,11 @@ import java.awt.event.KeyListener;
 
 import pasa.cbentley.swing.gif.ctx.SwingGifCtx;
 import pasa.cbentley.swing.images.interfaces.IGifCommadable;
-import pasa.cbentley.swing.images.interfaces.IRepaintable;
+import pasa.cbentley.swing.images.interfaces.IGifRepaintable;
 
 public class KeyEventsGIFPlayerDelegate extends AbstractEventDelegate implements KeyListener {
 
-   public KeyEventsGIFPlayerDelegate(SwingGifCtx gifc, IGifCommadable controller, IRepaintable repaintable) {
+   public KeyEventsGIFPlayerDelegate(SwingGifCtx gifc, IGifCommadable controller, IGifRepaintable repaintable) {
       super(gifc, controller, repaintable);
    }
 

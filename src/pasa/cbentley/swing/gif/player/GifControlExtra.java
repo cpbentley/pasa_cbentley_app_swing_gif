@@ -13,11 +13,11 @@ import javax.swing.JFileChooser;
 import pasa.cbentley.swing.gif.ctx.SwingGifCtx;
 import pasa.cbentley.swing.gif.utils.GIFFilter;
 import pasa.cbentley.swing.images.interfaces.IGifCommadable;
-import pasa.cbentley.swing.images.interfaces.IRepaintable;
+import pasa.cbentley.swing.images.interfaces.IGifRepaintable;
 
 public class GifControlExtra extends GifControl {
 
-   public GifControlExtra(SwingGifCtx gifc, IRepaintable rep, IGifCommadable controller) {
+   public GifControlExtra(SwingGifCtx gifc, IGifRepaintable rep, IGifCommadable controller) {
       super(gifc, rep, controller);
    }
 

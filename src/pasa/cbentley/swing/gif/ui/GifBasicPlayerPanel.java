@@ -22,7 +22,7 @@ import pasa.cbentley.swing.gif.utils.GifTransfer;
 import pasa.cbentley.swing.images.anim.AnimationCoordinator;
 import pasa.cbentley.swing.images.anim.ui.JComponentAnim;
 import pasa.cbentley.swing.images.ctx.ImgCtx;
-import pasa.cbentley.swing.images.interfaces.IRepaintable;
+import pasa.cbentley.swing.images.interfaces.IGifRepaintable;
 import pasa.cbentley.swing.imytab.IMyGui;
 import pasa.cbentley.swing.interfaces.ICallBackSwing;
 import pasa.cbentley.swing.window.CBentleyFrame;
@@ -33,7 +33,7 @@ import pasa.cbentley.swing.window.CBentleyFrame;
  * @author Charles Bentley
  *
  */
-public class GifBasicPlayerPanel extends JPanel implements ICallBackSwing, ICallBack, IMyGui, IRepaintable {
+public class GifBasicPlayerPanel extends JPanel implements ICallBackSwing, ICallBack, IMyGui, IGifRepaintable {
 
    private AnimationCoordinator    animDrawer;
 

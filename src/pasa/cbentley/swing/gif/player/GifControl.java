@@ -20,7 +20,7 @@ import pasa.cbentley.swing.gif.ctx.SwingGifCtx;
 import pasa.cbentley.swing.gif.utils.GIFFilter;
 import pasa.cbentley.swing.images.anim.AnimOfImageFrames;
 import pasa.cbentley.swing.images.interfaces.IGifCommadable;
-import pasa.cbentley.swing.images.interfaces.IRepaintable;
+import pasa.cbentley.swing.images.interfaces.IGifRepaintable;
 import pasa.cbentley.swing.interfaces.ICallBackSwing;
 
 /**
@@ -44,11 +44,11 @@ public class GifControl implements ICallBackSwing, ICallBack {
 
    protected File           lastTriedFile;
 
-   protected IRepaintable   rep;
+   protected IGifRepaintable   rep;
 
    protected final SwingCtx sc;
 
-   public GifControl(SwingGifCtx gifc, IRepaintable rep, IGifCommadable controller) {
+   public GifControl(SwingGifCtx gifc, IGifRepaintable rep, IGifCommadable controller) {
       this.gifc = gifc;
       this.sc = gifc.getSwingCtx();
       this.rep = rep;

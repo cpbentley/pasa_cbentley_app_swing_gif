@@ -16,11 +16,11 @@ import pasa.cbentley.swing.ctx.SwingCtx;
 import pasa.cbentley.swing.gif.ctx.SwingGifCtx;
 import pasa.cbentley.swing.images.anim.AnimationCoordinator;
 import pasa.cbentley.swing.images.interfaces.IGifCommadable;
-import pasa.cbentley.swing.images.interfaces.IRepaintable;
+import pasa.cbentley.swing.images.interfaces.IGifRepaintable;
 
 public class MouseEventsGIFPlayerDelegate extends AbstractEventDelegate implements IStringable, MouseWheelListener {
 
-   public MouseEventsGIFPlayerDelegate(SwingGifCtx gifc, IGifCommadable controller, IRepaintable repaintable) {
+   public MouseEventsGIFPlayerDelegate(SwingGifCtx gifc, IGifCommadable controller, IGifRepaintable repaintable) {
       super(gifc, controller, repaintable);
    }
 

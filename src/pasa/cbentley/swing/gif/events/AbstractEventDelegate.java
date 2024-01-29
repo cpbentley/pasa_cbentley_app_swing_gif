@@ -7,7 +7,7 @@ package pasa.cbentley.swing.gif.events;
 import pasa.cbentley.swing.ctx.SwingCtx;
 import pasa.cbentley.swing.gif.ctx.SwingGifCtx;
 import pasa.cbentley.swing.images.interfaces.IGifCommadable;
-import pasa.cbentley.swing.images.interfaces.IRepaintable;
+import pasa.cbentley.swing.images.interfaces.IGifRepaintable;
 
 public abstract class AbstractEventDelegate {
 
@@ -17,9 +17,9 @@ public abstract class AbstractEventDelegate {
 
    protected final SwingCtx       sc;
 
-   protected final IRepaintable repaintable;
+   protected final IGifRepaintable repaintable;
 
-   public AbstractEventDelegate(SwingGifCtx gifc, IGifCommadable controller, IRepaintable repaintable) {
+   public AbstractEventDelegate(SwingGifCtx gifc, IGifCommadable controller, IGifRepaintable repaintable) {
       this.gifc = gifc;
       this.controller = controller;
       this.repaintable = repaintable;

@@ -17,7 +17,7 @@ import pasa.cbentley.swing.gif.player.GifControl;
 import pasa.cbentley.swing.images.anim.AnimationCoordinator;
 import pasa.cbentley.swing.images.anim.ui.JComponentAnim;
 import pasa.cbentley.swing.images.interfaces.IGifCommadable;
-import pasa.cbentley.swing.images.interfaces.IRepaintable;
+import pasa.cbentley.swing.images.interfaces.IGifRepaintable;
 
 /**
  * Draws the Gif animation in the background of the JPanel.
@@ -31,7 +31,7 @@ import pasa.cbentley.swing.images.interfaces.IRepaintable;
  * @author Charles Bentley
  *
  */
-public class NewGIFBackgroundPanel extends JPanel implements IRepaintable, IStringable {
+public class NewGIFBackgroundPanel extends JPanel implements IGifRepaintable, IStringable {
 
    /**
     * 
