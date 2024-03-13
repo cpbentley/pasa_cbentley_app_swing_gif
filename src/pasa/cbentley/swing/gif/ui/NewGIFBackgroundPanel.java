@@ -123,7 +123,7 @@ public class NewGIFBackgroundPanel extends JPanel implements IGifRepaintable, IS
    }
 
    public UCtx toStringGetUCtx() {
-      return sc.getUCtx();
+      return sc.getUC();
    }
    //#enddebug
 

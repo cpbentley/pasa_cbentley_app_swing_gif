@@ -25,7 +25,7 @@ public class SwingGifCtx extends ACtx {
    private final ImgCtx imgc;
 
    public SwingGifCtx(SwingCtx sc, ImgCtx imgc) {
-      super(sc.getUCtx());
+      super(sc.getUC());
       this.sc = sc;
       this.imgc = imgc;
    }

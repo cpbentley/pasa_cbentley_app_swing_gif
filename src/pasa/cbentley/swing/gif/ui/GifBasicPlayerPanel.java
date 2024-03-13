@@ -159,7 +159,7 @@ public class GifBasicPlayerPanel extends JPanel implements ICallBackSwing, ICall
    }
 
    public UCtx toStringGetUCtx() {
-      return sc.getUCtx();
+      return sc.getUC();
    }
    //#enddebug
 

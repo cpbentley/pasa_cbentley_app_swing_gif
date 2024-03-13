@@ -204,7 +204,7 @@ public class GifControl implements ICallBackSwing, ICallBack {
    }
 
    public UCtx toStringGetUCtx() {
-      return gifc.getUCtx();
+      return gifc.getUC();
    }
 
    private void toStringPrivate(Dctx dc) {
